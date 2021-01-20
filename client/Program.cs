@@ -24,7 +24,6 @@ namespace JabobKrauskopf.NetOppressor
                 .ToList();
             var lastIp = "0.0.0.0";
             var ranges = new List<String>();
-            Console.WriteLine(string.Join(",", sortedIps));
             foreach (string i in sortedIps)
             {
                 string[] split_ip = i.Split(".");
@@ -55,7 +54,6 @@ namespace JabobKrauskopf.NetOppressor
                     Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
                 firewallPolicy.Rules.Add(firewallRule);
             } catch (Exception e) {
-                Console.WriteLine("Test");
                 Console.WriteLine(e.Message);
             }
         }
@@ -80,11 +78,11 @@ namespace JabobKrauskopf.NetOppressor
                 switch(parsedMessage.Command) {
                     case "start":
                         AddRule(parsedMessage.Ips);
-                        Console.WriteLine("Added Firewall Rule");
+                        Console.WriteLine((DateTime.Now) + ": Added Firewall Rule\n");
                         break;
                     case "stop":
                         RemoveRule();
-                        Console.WriteLine("Removed Firewall Rule");
+                        Console.WriteLine((DateTime.Now) + ": Removed Firewall Rule\n");
                         break;
                     default:
                         throw new Exception("Command not recognized");
