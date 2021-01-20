@@ -37,9 +37,10 @@ namespace JabobKrauskopf.NetOppressor
         }
         static void AddRule(string[] ips)
         {
+            RemoveRule();
             try {
                 INetFwRule firewallRule = (INetFwRule)Activator.CreateInstance(
-                                Type.GetTypeFromProgID("HNetCfg.FWRule"));
+                    Type.GetTypeFromProgID("HNetCfg.FWRule"));
                 firewallRule.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
                 firewallRule.Description = "Used to block Gta V.";
                 firewallRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
