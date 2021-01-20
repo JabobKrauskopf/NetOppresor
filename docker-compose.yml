@@ -1,0 +1,17 @@
+version: '2.1'
+
+services:
+  server:
+    container_name: netop-server
+    build: server
+    ports:
+      - '1234:1234'
+
+  frontend:
+    container_name: netop-frontend
+    build: frontend
+    depends_on:
+      server:
+        condition: service_started
+    ports:
+      - '80:80'
