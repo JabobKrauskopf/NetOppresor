@@ -16,7 +16,14 @@
     "downlevelIteration": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
