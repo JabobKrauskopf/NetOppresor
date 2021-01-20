@@ -70,7 +70,7 @@ namespace JabobKrauskopf.NetOppressor
         }
         static async Task Main(string[] args)
         {
-            var url = new Uri("ws://91.65.183.68:1234");
+            var url = new Uri("ws://netoppressor.jakobkraus.me:1234");
             var exitEvent = new ManualResetEvent(false);
 
             using var client = new WebsocketClient(url);
